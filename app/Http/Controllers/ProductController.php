@@ -9,33 +9,34 @@ class ProductController extends Controller
 {
     public function add()
     {
-        //TODO : Create View
-
-        return view('admin.add_product');
+        return view('admin.product.add');
     }
 
     public function all()
     {
-        //Todo Create View
-
         $products = product::all();
-
-        return view('admin.all_products' , compact('products'));
+        return view('admin.product.all' , compact('products'));
     }
 
     public function store(Request $request)
     {
-        //TODO : Validation
-        //TODO : Store
+        $data = $request->validate([
+           'name' => 'required' ,
+           'count' => 'required|numeric|min:0',
+           'price' => 'required|numeric|min:0',
+           'description' => 'required'
+        ]);
+
+        product::create($data);
+
         //ToDO : Send Email
 
-        return $this->all();
+        return redirect(route('admin.product.all'));
     }
 
-    public function delete(Request $request)
+    public function delete(Request $request , $id)
     {
-        //TODO : Remove Product
-
-        return $this->all();
+        product::where('id' , $id)->delete();
+        return redirect(route('admin.product.all'));
     }
 }

@@ -1,0 +1,42 @@
+form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form div
+{
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+button
+{
+    margin-top: 10px;
+}
+.error
+{
+    color: red;
+    font-weight: bolder;
+    font-size: 12px;
+    margin: 0;
+}
+
+table, th, td {
+    border: 1px solid;
+    border-collapse: collapse;
+    padding: 15px;
+    text-align: center;
+}
+
+.delete-btn
+{
+    border: 3px solid red;
+    border-radius: 10px;
+    background-color: #ff1e00;
+    color: white;
+    cursor: pointer;
+}
