@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendMail;
 use App\Models\product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ProductController extends Controller
 {
@@ -29,7 +31,7 @@ class ProductController extends Controller
 
         product::create($data);
 
-        //ToDO : Send Email
+        Mail::to('landa.cloner1379@gmail.com’')->send(new SendMail());
 
         return redirect(route('admin.product.all'));
     }
