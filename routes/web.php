@@ -32,8 +32,12 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+Route::get('/admin_error' , function (){
+    return view('auth.admin');
+})->name('auth.admin');
 
 
+// admin Routes
 Route::group([
     'prefix' => '/product',
     'middleware' => 'admin' ,
@@ -45,10 +49,8 @@ Route::group([
     Route::delete('/delete/{id}' , [ProductController::class , 'delete'])->name('admin.product.delete');
 });
 
-Route::get('/admin_error' , function (){
-    return view('auth.admin');
-})->name('auth.admin');
 
+//user routes
 Route::middleware('auth')->group(function(){
 
     Route::get('/products' , [ProductController::class , 'products'])->name('user.products');
