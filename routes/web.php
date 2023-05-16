@@ -49,5 +49,12 @@ Route::get('/admin_error' , function (){
     return view('auth.admin');
 })->name('auth.admin');
 
-Route::get('/products' , [ProductController::class , 'products'])->name('user.products');
-Route::get('/cart' , [CartController::class , 'cart'])->name('user.cart');
+Route::middleware('auth')->group(function(){
+
+    Route::get('/products' , [ProductController::class , 'products'])->name('user.products');
+    Route::get('/product/add/{id}' , [CartController::class , 'add_to_cart'])->name('add_to_cart');
+    Route::get('/product/remove/{id}' , [CartController::class , 'remove_from_cart'])->name('remove_from_cart');
+    Route::get('/product/delete/{id}' , [CartController::class , 'delete_from_cart'])->name('delete_from_cart');
+    Route::get('/cart' , [CartController::class , 'cart'])->name('user.cart');
+    Route::get('/buy' , [CartController::class , 'buy'])->name('buy');
+});

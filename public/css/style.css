@@ -46,3 +46,29 @@ table, th, td {
     cursor: pointer;
 }
 
+.products-holder
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.product
+{
+    width: 90%;
+    margin: 20px;
+    padding: 10px;
+    border: 2px solid gray;
+}
+.buy
+{
+    display: block;
+    width: 100px;
+    padding: 10px 20px;
+    color: white;
+    background-color: red;
+    margin: 10px auto;
+    text-align: center;
+    border-radius: 20px;
+}
+

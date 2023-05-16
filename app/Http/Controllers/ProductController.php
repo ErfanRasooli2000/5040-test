@@ -23,7 +23,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-           'name' => 'required' ,
+           'name' => 'required|unique:products,name' ,
            'count' => 'required|numeric|min:0',
            'price' => 'required|numeric|min:0',
            'description' => 'required'
@@ -40,5 +40,11 @@ class ProductController extends Controller
     {
         product::where('id' , $id)->delete();
         return redirect(route('admin.product.all'));
+    }
+
+    public function products()
+    {
+        $all = product::all();
+        return view('user.all' , compact('all'));
     }
 }
