@@ -31,7 +31,7 @@ class ProductController extends Controller
 
         product::create($data);
 
-        Mail::to('landa.cloner1379@gmail.com’')->send(new SendMail());
+//        Mail::to('landa.cloner1379@gmail.com’')->send(new SendMail());
 
         return redirect(route('admin.product.all'));
     }

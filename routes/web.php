@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -44,3 +45,9 @@ Route::group([
     Route::delete('/delete/{id}' , [ProductController::class , 'delete'])->name('admin.product.delete');
 });
 
+Route::get('/admin_error' , function (){
+    return view('auth.admin');
+})->name('auth.admin');
+
+Route::get('/products' , [ProductController::class , 'products'])->name('user.products');
+Route::get('/cart' , [CartController::class , 'cart'])->name('user.cart');

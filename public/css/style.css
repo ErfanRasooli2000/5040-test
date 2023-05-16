@@ -4,6 +4,7 @@ form
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 20px;
 }
 
 form div
@@ -13,9 +14,13 @@ form div
     justify-content: space-between;
     margin-top: 15px;
 }
-button
+.save-product-btn
 {
     margin-top: 10px;
+    background-color: red !important;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
 }
 .error
 {
@@ -40,3 +45,4 @@ table, th, td {
     color: white;
     cursor: pointer;
 }
+

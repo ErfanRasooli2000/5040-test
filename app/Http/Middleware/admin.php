@@ -22,6 +22,10 @@ class admin
             {
                 return $next($request);
             }
+            else
+            {
+                return redirect(route('auth.admin'));
+            }
         }
         return redirect(route('login'));
     }
